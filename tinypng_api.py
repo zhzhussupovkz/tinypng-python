@@ -57,3 +57,4 @@ class TinypngApi:
 			print "Output image size: %s" % page.get('output').get('size')
 		except:
 			print "Image %s shrink: NOT OK" % input
+		resp.close()
