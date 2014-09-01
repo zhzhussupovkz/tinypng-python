@@ -24,7 +24,18 @@
 # SOFTWARE.
 
 from tinypng_api import TinypngApi
+from optparse import OptionParser
+
+
+usage = "%prog [options]\n\n"
+usage += "Command-line tool for downloading shrink images by from https://www.tinypng.com\n"
+usage += "Copyright (c) 2014 Zhussupov Zhassulan zhzhussupovkz@gmail.com\n"
+usage += "While using this program, get API key from https://www.tinypng.com"
+option_parser = OptionParser(usage=usage, version="%prog 1.0")
+option_parser.add_option("-i", "--input", help = "input file", default = "python.png")
+option_parser.add_option("-o", "--output", help = "output file", default = 'python-output.png')
+(options, args) = option_parser.parse_args()
 
 my_api_key = 'Your API key'
 api = TinypngApi(my_api_key)
-api.shrink()
+api.shrink(input = options.input, output = options.output)
